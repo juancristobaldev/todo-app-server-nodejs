@@ -1,0 +1,78 @@
+type User {
+  id: Int!
+  name: String!
+  user: String!
+  pass: String!
+  token: String!
+}
+
+type Task {
+  id: Int!
+  task: String!
+  userId: String!
+  dateCreated: String!
+  state: String!
+}
+
+type Query {
+  getTask: Task
+  getTasks: [Task]
+  getUser: User
+  getUsers: [User]
+}
+
+input CreateUserInput {
+  name: String
+  user: String
+  pass: String
+  passConfirm: String
+}
+
+input UpdateUserInput {
+  name: String
+  user: String
+  pass: String
+}
+
+input SignInUserInput {
+  user: String!
+  pass: String!
+}
+
+input CreateTaskInput {
+  task: String!
+  userId: String!
+  dateCreated: String!
+}
+
+input UpdateTaskInput {
+  id: Int!
+  task: String
+  state: String
+}
+
+input DeleteTaskInput {
+  id: Int!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): Output
+  updateUser(input: UpdateUserInput!): Output
+  deleteUser: Output
+  signInUser(input: SignInUserInput!): OutputSignIn
+
+  createTask(input: CreateTaskInput!): Output
+  updateTask(input: UpdateTaskInput!): Output
+  deleteTask(input: DeleteTaskInput!): Output
+}
+
+type Output {
+  errors: String
+  success: Boolean
+}
+
+type OutputSignIn {
+  errors: String
+  success: Boolean
+  token: String
+}
