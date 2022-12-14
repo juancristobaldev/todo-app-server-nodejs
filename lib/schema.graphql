@@ -11,11 +11,11 @@ type Task {
   task: String!
   userId: String!
   dateCreated: String!
-  state: String!
+  status: String!
 }
 
 type Query {
-  getTask: Task
+  getTask(id: Int!): Task
   getTasks: [Task]
   getUser: User
   getUsers: [User]
@@ -41,14 +41,12 @@ input SignInUserInput {
 
 input CreateTaskInput {
   task: String!
-  userId: String!
-  dateCreated: String!
 }
 
 input UpdateTaskInput {
   id: Int!
   task: String
-  state: String
+  status: String
 }
 
 input DeleteTaskInput {
@@ -69,6 +67,11 @@ type Mutation {
 type Output {
   errors: String
   success: Boolean
+}
+type OutputUser {
+  errors: String
+  success: Boolean
+  user: String
 }
 
 type OutputSignIn {
