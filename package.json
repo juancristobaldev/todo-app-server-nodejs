@@ -25,7 +25,8 @@
     "nodemon": "^2.0.19",
     "nope-validator": "^1.0.4",
     "path": "^0.12.7",
-    "uuid-token-generator": "^1.0.0"
+    "uuid-token-generator": "^1.0.0",
+    "vercel": "^28.9.0"
   },
   "devDependencies": {
     "prisma": "^4.7.1"
