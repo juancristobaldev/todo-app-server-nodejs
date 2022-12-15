@@ -42,6 +42,7 @@ const port = process.env.PORT;
 // routes
 
 app.get( '/', (req,res) => {
+    console.log(req.headers.host)
     res.send('Welcome to my Api in Vercel 🚀 ')
 })
 
