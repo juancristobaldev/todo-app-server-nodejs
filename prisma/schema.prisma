@@ -13,13 +13,13 @@ model tasks {
   task        String @db.VarChar(50)
   dateCreated String @db.VarChar(30)
   status      String @db.VarChar(30)
-  user        users? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        users? @relation(fields: [userId], references: [id])
   userId      Int
 }
 
 model users {
-  id    Int     @id @unique @default(autoincrement())
-  email String? @unique @db.VarChar(50)
+  id Int @id @unique @default(autoincrement())
+
   name  String  @db.VarChar(50)
   pass  String  @db.VarChar(20)
   token String  @unique @db.VarChar(255)
