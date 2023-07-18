@@ -4,12 +4,13 @@ type User {
   email: String
   pass: String!
   token: String!
+  tasks: [Task]
 }
 
 type Task {
   id: Int!
   task: String!
-  userId: String!
+  user: User
   dateCreated: String!
   status: String!
 }
