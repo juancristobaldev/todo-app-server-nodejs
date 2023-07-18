@@ -1,7 +1,7 @@
 type User {
   id: Int!
   name: String!
-  user: String!
+  email: String!
   pass: String!
   token: String!
 }
@@ -23,19 +23,19 @@ type Query {
 
 input CreateUserInput {
   name: String
-  user: String
+  email: String
   pass: String
   passConfirm: String
 }
 
 input UpdateUserInput {
   name: String
-  user: String
+  email: String
   pass: String
 }
 
 input SignInUserInput {
-  user: String!
+  email: String!
   pass: String!
 }
 

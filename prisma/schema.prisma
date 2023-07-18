@@ -20,6 +20,7 @@ model tasks {
 model users {
   id    Int     @id @unique @default(autoincrement())
   user  String  @unique @db.VarChar(30)
+  email String  @unique @db.VarChar(50)
   name  String  @db.VarChar(50)
   pass  String  @db.VarChar(20)
   token String  @unique @db.VarChar(255)
