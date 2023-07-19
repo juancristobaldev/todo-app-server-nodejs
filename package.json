@@ -25,6 +25,8 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.19",
     "nope-validator": "^1.0.4",
+    "passport": "^0.6.0",
+    "passport-google-oidc": "^0.1.0",
     "path": "^0.12.7",
     "uuid-token-generator": "^1.0.0",
     "vercel": "^28.9.0"
