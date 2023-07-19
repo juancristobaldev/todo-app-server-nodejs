@@ -13,8 +13,8 @@ model tasks {
   task        String @db.VarChar(50)
   dateCreated String @db.VarChar(30)
   status      String @db.VarChar(30)
-  user        users? @relation(fields: [userId], references: [id])
   userId      Int
+  user        users? @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model users {
