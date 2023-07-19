@@ -1,7 +1,7 @@
 type User {
   id: Int!
   name: String!
-  email: String
+  email: String!
   pass: String!
   token: String!
   tasks: [Task]
@@ -23,10 +23,10 @@ type Query {
 }
 
 input CreateUserInput {
-  name: String
-  email: String
-  pass: String
-  passConfirm: String
+  name: String!
+  email: String!
+  pass: String!
+  passConfirm: String!
 }
 
 input UpdateUserInput {
@@ -59,7 +59,6 @@ type Mutation {
   updateUser(input: UpdateUserInput!): Output
   deleteUser: Output
   signInUser(input: SignInUserInput!): OutputSignIn
-
   createTask(input: CreateTaskInput!): Output
   updateTask(input: UpdateTaskInput!): Output
   deleteTask(input: DeleteTaskInput!): Output
