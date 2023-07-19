@@ -18,9 +18,9 @@ model tasks {
 }
 
 model users {
-  id Int @id @unique @default(autoincrement())
-
+  id    Int     @id @unique @default(autoincrement())
   name  String  @db.VarChar(50)
+  email String? @db.VarChar(50)
   pass  String  @db.VarChar(20)
   token String  @unique @db.VarChar(255)
   tasks tasks[]
