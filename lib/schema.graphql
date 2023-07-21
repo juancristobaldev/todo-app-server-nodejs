@@ -12,6 +12,7 @@ type Task {
   task: String!
   user: User
   dateCreated: String!
+  dateAsigned: String!
   status: String!
 }
 
@@ -47,6 +48,7 @@ input CreateTaskInput {
 input UpdateTaskInput {
   id: Int!
   task: String
+  dateCreated: String
   status: String
 }
 

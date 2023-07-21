@@ -12,6 +12,7 @@ model tasks {
   id          Int    @id @unique @default(autoincrement())
   task        String @db.VarChar(50)
   dateCreated String @db.VarChar(30)
+  dateAsigned String @db.VarChar(30)
   status      String @db.VarChar(30)
   userId      Int
   user        users? @relation(fields: [userId], references: [id], onDelete: Cascade)
