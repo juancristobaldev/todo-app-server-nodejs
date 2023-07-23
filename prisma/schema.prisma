@@ -8,14 +8,32 @@ datasource db {
   relationMode = "prisma"
 }
 
+model dates {
+  id      Int      @id @unique @default(autoincrement())
+  date    String   @db.VarChar(30)
+  users   users?   @relation(fields: [usersId], references: [id])
+  usersId Int?
+  tasks   tasks[]
+  status  status[]
+}
+
 model tasks {
-  id          Int    @id @unique @default(autoincrement())
-  task        String @db.VarChar(50)
-  dateCreated String @db.VarChar(30)
-  dateAsigned String @db.VarChar(30)
-  status      String @db.VarChar(30)
+  id          Int      @id @unique @default(autoincrement())
+  name        String   @db.VarChar(50)
+  dateCreated String   @db.VarChar(30)
+  dates       dates[]
   userId      Int
-  user        users? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        users?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  status      status[]
+}
+
+model status {
+  id        Int     @id @unique @default(autoincrement())
+  completed Boolean @default(true)
+  tasks     tasks?  @relation(fields: [tasksId], references: [id])
+  tasksId   Int?
+  dates     dates?  @relation(fields: [datesId], references: [id])
+  datesId   Int?
 }
 
 model users {
@@ -25,4 +43,5 @@ model users {
   pass  String  @db.VarChar(20)
   token String  @unique @db.VarChar(255)
   tasks tasks[]
+  dates dates[]
 }

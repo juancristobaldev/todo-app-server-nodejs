@@ -9,11 +9,17 @@ type User {
 
 type Task {
   id: Int!
-  task: String!
+  name: String!
   user: User
   dateCreated: String!
-  dateAsigned: String!
-  status: String!
+  dates: [Date]
+}
+
+type Date {
+  id: Int!
+  date: String!
+  tasks: [Task]
+  status: Boolean!
 }
 
 type Query {
@@ -21,6 +27,7 @@ type Query {
   getTasks: [Task]
   getUser: User
   getUsers: [User]
+  getTasksByDate(date: String!): [Task]
 }
 
 input CreateUserInput {
@@ -42,14 +49,15 @@ input SignInUserInput {
 }
 
 input CreateTaskInput {
-  task: String!
+  name: String!
 }
 
 input UpdateTaskInput {
   id: Int!
-  task: String
-  dateCreated: String
+  name: String
   status: String
+  where: String
+  date: String
 }
 
 input DeleteTaskInput {
